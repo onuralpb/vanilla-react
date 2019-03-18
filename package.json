@@ -1,0 +1,17 @@
+{
+  "name": "vanilla-react",
+  "version": "1.0.0",
+  "description": "React,Babel and Webpack without create-react-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vanilla",
+    "react",
+    "babel",
+    "webpack"
+  ],
+  "author": "Onur Alp Baklaci",
+  "license": "ISC"
+}
