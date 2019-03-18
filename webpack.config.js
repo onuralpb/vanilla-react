@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
 module.exports = {
 	entry     : "./src/index.js",
 	mode      : "development",
@@ -42,5 +44,5 @@ module.exports = {
 		compress    : true,
 		open        : true,
 	},
-	plugins   : [ new webpack.HotModuleReplacementPlugin(), new HtmlWebPackPlugin() ],
+	plugins   : [ new webpack.HotModuleReplacementPlugin(), new HtmlWebPackPlugin() /* new BundleAnalyzerPlugin() */ ],
 };
