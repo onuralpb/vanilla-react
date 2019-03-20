@@ -1,7 +1,238 @@
-body {
-	background: rgb(53, 95, 79);
+.mainBorder {
+	background: #1f2634;
+
+	.leftPanel {
+		background: #131c29;
+		min-height: 800px;
+		.logoContent {
+			position: relative;
+			margin: 15px 0;
+			a {
+				display: block;
+				img {
+					width: 40px;
+				}
+				span {
+					position: absolute;
+					left: 55px;
+					top: 6px;
+					font-size: 20px;
+					color: #e3ecf6;
+				}
+			}
+		}
+		hr {
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: #1e2633;
+			margin: 10px 0;
+		}
+		.leftMenuContent {
+			li {
+				a {
+					display: block;
+					font-weight: 400;
+					font-size: 14px;
+					padding: 10px 15px;
+					margin: 5px 0;
+					border-radius: 4px;
+					color: #a7aeb5;
+					&:hover {
+						color: #e3ecf6;
+						background: #1c2636;
+					}
+					&.activePage {
+						color: #e3ecf6;
+						background: #273954;
+						i {
+							color: #9d7be0;
+						}
+					}
+
+					i {
+						margin-right: 5px;
+					}
+				}
+			}
+			&.menuForFetching {
+				a {
+					&.activePage {
+						background: #950dda;
+						i {
+							color: #61b10a;
+						}
+					}
+				}
+			}
+		}
+	}
+	.rightPanel {
+		background: #212d46;
+		padding: 0 30px 30px 30px;
+	}
 }
-.app {
-	font-size: 30px;
-	color: #fff;
+
+.loadingPanel {
+	min-height: 800px;
+	width: 100%;
+	text-align: center;
+	.loader {
+		margin-top: 11%;
+	}
+}
+
+.todoDone {
+	color: #a1e22a;
+}
+.todoNotDone {
+	opacity: 0.1;
+}
+.listLink {
+	color: #7da5d0;
+	&:hover {
+		color: #9abde2;
+	}
+}
+.ui.placeholder,
+.ui.placeholder .image.header:after,
+.ui.placeholder .line,
+.ui.placeholder .line:after,
+.ui.placeholder > :before {
+	background-color: #294167;
+}
+.loaderContent {
+	.row {
+		border-bottom: solid 1px #374d73;
+		padding: 20px 0;
+	}
+	&:hover {
+		background: #2d4367 !important;
+	}
+}
+.ui.toggle.checkbox .box:before,
+.ui.toggle.checkbox label:before,
+.ui.toggle.checkbox input:focus ~ .box:before,
+.ui.toggle.checkbox input:focus ~ label:before {
+	background: rgb(76, 96, 128);
+}
+
+.ybc {
+	position: fixed;
+	z-index: -99;
+	width: 100%;
+	height: 100%;
+}
+.chosen-container {
+	color: #000;
+}
+
+.select2 {
+	width: 100% !important;
+	color: #000;
+	.select2-selection {
+		border-radius: 4px !important;
+		box-shadow: none !important;
+		border: 1px solid #6f8bb7 !important;
+		color: #d6d6d6 !important;
+		background: #222529 !important;
+		&::placeholder {
+			color: rgba(225, 235, 245, .3) !important;
+		}
+		&:focus {
+			border-color: #384c6d !important;
+			box-shadow: none !important;
+			background: #fbfcff !important;
+		}
+		ul {
+			li {
+				color: #000 !important;
+			}
+		}
+	}
+}
+.select2-results {
+	border-radius: 4px !important;
+	box-shadow: none !important;
+	border: 1px solid #000 !important;
+	color: #d6d6d6 !important;
+	background: #222529 !important;
+	&::placeholder {
+		color: rgba(225, 235, 245, .3) !important;
+	}
+	&:focus {
+		border-color: #384c6d !important;
+		box-shadow: none !important;
+		background: #fbfcff !important;
+	}
+	ul {
+		li {
+			color: #fff !important;
+		}
+	}
+}
+.jqueryContent {
+	h5 {
+		color: #daf158;
+	}
+}
+
+.headerContent {
+	border-bottom: solid 1px #294167;
+	padding: 10px;
+	margin-bottom: 10px;
+	.row {
+		min-height: 50px;
+	}
+}
+.productBox {
+	margin-bottom: 30px;
+}
+
+.addBasketContainer {
+	background: red;
+	border-radius: 4px;
+	padding: 5px 10px;
+	border: solid 2px blue;
+}
+.popover-header {
+	color: #9d7be0;
+}
+
+.btn-basket {
+	i {
+		margin-right: 10px;
+		font-size: 15px;
+		color: #7d2525;
+	}
+	.badge {
+		font-size: 13px;
+	}
+}
+.productBasket {
+	background: whitesmoke;
+	padding: 10px 0;
+	border-radius: 6px;
+	margin-bottom: 5px;
+	position: relative;
+	transition: background .4s ease-in-out;
+	.btn {
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		border-radius: 5px 0 5px 0;
+		transition: opacity .1s ease-in-out;
+	}
+	&:hover {
+		background: #fff0f0;
+		.btn {
+			opacity: 1;
+		}
+	}
+}
+.sumPriceContent {
+	text-align: right;
+	font-size: 20px;
+	padding: 10px;
 }

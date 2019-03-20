@@ -4,15 +4,31 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-	entry     : "./src/index.js",
-	mode      : "development",
-	module    : {
+	mode         : "development",
+	entry        : path.join(__dirname, "src", "index.js"),
+	output       : {
+		path     : path.join(__dirname, "build"),
+		filename : "index.bundle.js",
+	},
+	devServer    : {
+		contentBase : path.join(__dirname, "src", "index.html"),
+		port        : 3004,
+		hot         : true,
+		inline      : true,
+		compress    : true,
+		open        : true,
+	},
+	optimization : {
+		minimize : true,
+	},
+	module       : {
 		rules : [
 			{
 				test    : /\.(js|jsx)$/,
 				exclude : /node_modules/,
 				loader  : "babel-loader",
-				options : { presets: [ "@babel/env" ] },
+				options : { presets: [ "@babel/env", "@babel/react" ] },
+				// options : { babelrcRoots: [ " . ", " ../ " ] },
 			},
 
 			{
@@ -29,20 +45,9 @@ module.exports = {
 			},
 		],
 	},
-	resolve   : { extensions: [ "*", ".js", ".jsx" ] },
-	output    : {
-		path       : path.resolve(__dirname, "dist/"),
-		publicPath : "/dist/",
-		filename   : "bundle.js",
-	},
-	devServer : {
-		contentBase : path.join(__dirname, "public/"),
-		port        : 3000,
-		publicPath  : "http://localhost:3000/dist/",
-		hot         : true,
-		inline      : true,
-		compress    : true,
-		open        : true,
-	},
-	plugins   : [ new webpack.HotModuleReplacementPlugin(), new HtmlWebPackPlugin() /* new BundleAnalyzerPlugin() */ ],
+	resolve      : { extensions: [ "*", ".js", ".jsx" ] },
+	plugins      : [
+		new webpack.HotModuleReplacementPlugin(),
+		new HtmlWebPackPlugin({ template: path.join(__dirname, "src", "index.html") }) /* new BundleAnalyzerPlugin() */,
+	],
 };
