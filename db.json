@@ -657,21 +657,14 @@
       "id": 210,
       "name": "Onur Alp Baklacı",
       "email": "obaklaci@yenibiris.com",
-      "body": "echo I'd expect to see the object I've sent ({a: 1, b: fffff}) back, but this does not happen - chrome devtools doesn't even show the JSON as part of the request, which means that it's not being sent."
+      "body": "echo I'd expect to see the object I've sent ({a: 1, b: fffff}) back, but this does not happen - chromegf devtools doesn't even show the JSON as part of the request, which means that it's not being sent."
     },
     {
       "postId": "46",
       "id": 229,
       "name": "maxime veniam at",
       "email": "Deborah@fletcher.co.uk",
-      "body": "unde aliquam ipsam eaque quia laboriosam exercitationem totam illo non et dolore ipsa laborum et sapiente fugit voluptatem et debitis quia optio et minima et nostrum"
-    },
-    {
-      "postId": 48,
-      "id": 236,
-      "name": "cupiditate rerum voluptate quo facere repudiandae",
-      "email": "Freeda.Kirlin@eddie.ca",
-      "body": "itaque error cupiditate asperiores ut aspernatur veniam qui\ndoloribus sit aliquid pariatur dicta deleniti qui alias dignissimos\nrecusandae eaque repellendus est et dolorem aut non\nexplicabo voluptas est beatae vel temporibus"
+      "body": "unde aliquam ipsam eaque quia laboriosam exercitationjkljklem totam illo non et dolore ipsa laborum et sapiente fugit voluptatem et debitis quia optio et minima et nostrum"
     },
     {
       "postId": "48",

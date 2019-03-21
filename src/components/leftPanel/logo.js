@@ -7,7 +7,7 @@ export default class logo extends Component {
     return (
       <div className="logoContent">
         <Link to="/">
-          <img src={Image} alt="Flatify" />
+          <img src={`img/${Image}`} alt="Flatify" />
           <span>Flatify</span>
         </Link>
       </div>

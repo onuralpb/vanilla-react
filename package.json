@@ -57,8 +57,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.0",
+    "eslint": "^5.15.3",
     "react": "16.8.4",
-    "react-dom": "16.8.4"
+    "react-dom": "16.8.4",
+    "windows-build-tools": "^5.1.0"
   },
   "eslintConfig": {
     "extends": "react-app",
