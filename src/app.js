@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./assets/css/main.scss";
 import "./App.scss";
-
+import Async from "react-code-splitting";
 import { connect } from "react-redux";
 import { updateUser } from "./actions/userActions";
 import Logo from "./components/leftPanel/logo";
@@ -21,16 +21,17 @@ import Musics from "./components/rightPanel/musics";
 import Jquery from "./components/rightPanel/jquery";
 // import Products from "./components/rightPanel/products";
 
-class Products extends Component {
-	componentWillMount = () => {
-		import("./components/rightPanel/products").then((Component) => {
-			this.Component = Component;
-			this.forceUpdate();
-		});
-	};
-	render = () => (this.Component ? <this.Component.default /> : null);
-}
+// class Products extends Component {
+// 	componentWillMount = () => {
+// 		import("./components/rightPanel/products").then((Component) => {
+// 			this.Component = Component;
+// 			this.forceUpdate();
+// 		});
+// 	};
+// 	render = () => (this.Component ? <this.Component.default /> : null);
+// }
 
+const Products = () => <Async load={import("./components/rightPanel/products")} />;
 class App extends Component {
 	state = {
 		posts          : [],
