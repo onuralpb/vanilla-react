@@ -19,7 +19,17 @@ import Todos from "./components/rightPanel/todos";
 import Users from "./components/rightPanel/users";
 import Musics from "./components/rightPanel/musics";
 import Jquery from "./components/rightPanel/jquery";
-import Products from "./components/rightPanel/products";
+// import Products from "./components/rightPanel/products";
+
+class Products extends Component {
+	componentWillMount = () => {
+		import("./components/rightPanel/products").then((Component) => {
+			this.Component = Component;
+			this.forceUpdate();
+		});
+	};
+	render = () => (this.Component ? <this.Component.default /> : null);
+}
 
 class App extends Component {
 	state = {
