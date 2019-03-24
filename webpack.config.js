@@ -1,16 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
 	mode         : "development",
 	entry        : {
-		index : "./src/index.js",
+		index : path.resolve(__dirname, "./src/index.js"),
 	},
 	output       : {
-		filename      : "[name].bundle.js",
-		chunkFilename : "[name].bundle.js",
+		filename      : "[name].js",
+		chunkFilename : "[name].js",
 		path          : path.resolve(__dirname, "dist"),
 	},
 	devServer    : {
@@ -22,7 +22,10 @@ module.exports = {
 		historyApiFallback : true,
 	},
 	optimization : {
-		minimize : true,
+		minimize    : true,
+		splitChunks : {
+			chunks : "all",
+		},
 	},
 	module       : {
 		rules : [
@@ -65,6 +68,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebPackPlugin({
 			template : path.join(__dirname, "public", "index.html"),
-		}) /* new BundleAnalyzerPlugin() */,
+		}),
+		// new BundleAnalyzerPlugin(),
 	],
 };

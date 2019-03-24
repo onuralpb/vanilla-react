@@ -18,20 +18,10 @@ import Photos from "./components/rightPanel/photos";
 import Todos from "./components/rightPanel/todos";
 import Users from "./components/rightPanel/users";
 import Musics from "./components/rightPanel/musics";
-import Jquery from "./components/rightPanel/jquery";
-// import Products from "./components/rightPanel/products";
 
-// class Products extends Component {
-// 	componentWillMount = () => {
-// 		import("./components/rightPanel/products").then((Component) => {
-// 			this.Component = Component;
-// 			this.forceUpdate();
-// 		});
-// 	};
-// 	render = () => (this.Component ? <this.Component.default /> : null);
-// }
+const Jquery = () => <Async load={import(/* webpackChunkName: "jquery" */ "./components/rightPanel/jquery")} />;
+const Products = () => <Async load={import(/* webpackChunkName: "products" */ "./components/rightPanel/products")} />;
 
-const Products = () => <Async load={import("./components/rightPanel/products")} />;
 class App extends Component {
 	state = {
 		posts          : [],
