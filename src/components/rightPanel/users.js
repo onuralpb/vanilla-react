@@ -1,25 +1,30 @@
 import React, { Component } from "react";
 import Loader from "react-loaders";
-
-export default class users extends Component {
-	state = {
-		users     : [],
-		isLoading : true,
-	};
+import { connect } from "react-redux";
+import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { getUsersList, addUser, updateUser, deleteUser, searchUser } from "../../actions/usersActions";
+export class users extends Component {
 	componentDidMount() {
-		setTimeout(() => {
-			fetch("http://localhost:4000/users").then((data) => data.json()).then((users) => {
-				this.setState({
-					users,
-					isLoading : false,
-				});
-			});
-		}, 500);
+		this.props._getUsersList();
 	}
+
 	render() {
+		console.log("users", this);
+		const { users } = this.props;
 		return (
 			<div>
 				<h1>Users</h1>
+				{users.error && `(Veri alınamadı)`}
+				<InputGroup className='mb-3'>
+					<FormControl
+						placeholder='Recipient&#39;s username'
+						aria-label='Recipient&#39;s username'
+						aria-describedby='basic-addon2'
+					/>
+					<InputGroup.Append>
+						<Button variant='danger'>Button</Button>
+					</InputGroup.Append>
+				</InputGroup>
 				<div className='panel'>
 					<table className='table table-hover'>
 						<thead>
@@ -33,7 +38,7 @@ export default class users extends Component {
 							</tr>
 						</thead>
 						<tbody>
-							{this.state.isLoading ? (
+							{users.fetching ? (
 								<tr>
 									<td colSpan='6'>
 										<div className='loadingPanel'>
@@ -42,7 +47,7 @@ export default class users extends Component {
 									</td>
 								</tr>
 							) : (
-								this.state.users.map((user) => (
+								users.list.map((user) => (
 									<tr key={user.id}>
 										<td>{user.id}</td>
 										<td>
@@ -74,3 +79,15 @@ export default class users extends Component {
 		);
 	}
 }
+
+const mapStateToProps = ({ users }) => {
+	return {
+		users,
+	};
+};
+
+const mapDispatchToProps = {
+	_getUsersList : getUsersList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(users);

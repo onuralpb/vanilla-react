@@ -10,6 +10,8 @@ import userReducer from "./reducers/userReducer";
 import albumsReducer from "./reducers/albumsReducer";
 import photosReducer from "./reducers/photosReducer";
 import productsReducer from "./reducers/productsReducer";
+import usersReducer from "./reducers/usersReducer";
+import { AppContainer } from "react-hot-loader";
 
 const allEnhancers = compose(
 	applyMiddleware(thunk, logger),
@@ -22,6 +24,7 @@ const rootReducer = combineReducers({
 	albums   : albumsReducer,
 	photos   : photosReducer,
 	products : productsReducer,
+	users    : usersReducer,
 });
 
 const store = createStore(
@@ -33,11 +36,15 @@ const store = createStore(
 );
 
 console.log("index.js > store.getState : ", store.getState());
-ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+const render = ReactDOM.render(
+	<AppContainer>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</AppContainer>,
 	document.getElementById("root")
 );
-
+if (module.hot) {
+	module.hot.accept("./App", render);
+}
 serviceWorker.unregister();

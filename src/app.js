@@ -16,9 +16,8 @@ import Albums from "./components/rightPanel/albums";
 import Comments from "./components/rightPanel/comments";
 import Photos from "./components/rightPanel/photos";
 import Todos from "./components/rightPanel/todos";
-import Users from "./components/rightPanel/users";
-import Musics from "./components/rightPanel/musics";
 
+const Users = () => <Async load={import(/* webpackChunkName: "Users" */ "./components/rightPanel/users")} />;
 const Jquery = () => <Async load={import(/* webpackChunkName: "jquery" */ "./components/rightPanel/jquery")} />;
 const Products = () => <Async load={import(/* webpackChunkName: "products" */ "./components/rightPanel/products")} />;
 
@@ -75,8 +74,7 @@ class App extends Component {
 							<Route path='/albums' exact render={() => <Albums {...this.props} />} />
 							<Route path='/photos' exact render={() => <Photos {...this.props} />} />
 							<Route path='/todos' exact render={() => <Todos {...this.state} />} />
-							<Route path='/users' exact component={Users} />
-							<Route path='/musics' exact component={Musics} />
+							<Route path='/users' exact component={Users} render={() => <Users {...this.props} />} />
 							<Route path='/jquery' exact component={Jquery} />
 							<Route path='/products' exact render={() => <Products {...this.props} />} />
 						</div>

@@ -1,13 +1,19 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
 	mode         : "development",
-	entry        : {
-		index : path.resolve(__dirname, "./src/index.js"),
-	},
+	entry        : [
+		"react-hot-loader/patch",
+		"webpack/hot/only-dev-server",
+		"webpack-dev-server/client?http://localhost:3004/",
+		"./src/index.js",
+	],
+	cache        : false,
+	//devtool: "source-map",  add .map files
 	output       : {
 		filename      : "[name].js",
 		chunkFilename : "[name].js",
@@ -33,12 +39,23 @@ module.exports = {
 				test    : /\.(js|jsx)$/,
 				exclude : /node_modules/,
 				loader  : "babel-loader",
-				options : { presets: [ "@babel/env", "@babel/react" ] },
+				options : {
+					presets : [ "@babel/env", "@babel/react" ],
+				},
 			},
-
 			{
-				test : /\.(css|scss)$/,
-				use  : [ "style-loader", "css-loader", "sass-loader" ],
+				test    : /\.(css|scss)$/,
+				loaders : [
+					{
+						loader : "style-loader",
+					},
+					{
+						loader : "css-loader",
+					},
+					{
+						loader : "sass-loader",
+					},
+				],
 			},
 			{
 				test : /\.html$/,
@@ -65,10 +82,12 @@ module.exports = {
 		modules : [ path.resolve(__dirname, "src"), "node_modules" ],
 	},
 	plugins      : [
+		new webpack.DefinePlugin({ "process.env.NODE_ENV": '"production"' }),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebPackPlugin({
 			template : path.join(__dirname, "public", "index.html"),
 		}),
+		//new CompressionPlugin()
 		// new BundleAnalyzerPlugin(),
 	],
 };
