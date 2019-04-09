@@ -22,7 +22,7 @@ export class users extends Component {
 						aria-describedby='basic-addon2'
 					/>
 					<InputGroup.Append>
-						<Button variant='danger'>Button</Button>
+						<Button variant='danger'>dssfd</Button>
 					</InputGroup.Append>
 				</InputGroup>
 				<div className='panel'>
