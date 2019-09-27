@@ -11,7 +11,7 @@ export function getPhotoList() {
 		});
 		setTimeout(() => {
 			axios
-				.get("http://localhost:4000/photos", {
+				.get("http://localhost:5555/photos", {
 					params : {
 						albumId : 1,
 					},

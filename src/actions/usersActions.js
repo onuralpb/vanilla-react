@@ -1,4 +1,3 @@
-// getUsersList, addUser, updateUser, deleteUser, searchUser;
 
 import axios from "axios";
 
@@ -14,7 +13,7 @@ export function getUsersList() {
 		});
 		setTimeout(() => {
 			axios
-				.get("http://localhost:4000/users")
+				.get("http://localhost:5555/users")
 				.then((response) => response.data)
 				.then((users) =>
 					dispatch({
@@ -31,3 +30,7 @@ export function getUsersList() {
 		}, 1000);
 	};
 }
+export function addUser() {}
+export function updateUser() {}
+export function deleteUser() {}
+export function searchUser() {}

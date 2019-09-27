@@ -5,7 +5,7 @@ import '../../assets/css/loaders.css';
 export default class posts extends Component {
   componentDidMount () {
     setTimeout (() => {
-      fetch ('http://localhost:4000/posts?userId=1')
+      fetch ('http://localhost:5555/posts?userId=1')
         .then (data => data.json ())
         .then (posts => {
           this.props.dataFromPost (posts);

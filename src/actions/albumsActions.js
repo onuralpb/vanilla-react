@@ -12,7 +12,7 @@ export function getAlbumList() {
 		});
 		setTimeout(() => {
 			axios
-				.get("http://localhost:4000/albums", {
+				.get("http://localhost:5555/albums", {
 					params : {
 						userId : 1,
 					},
