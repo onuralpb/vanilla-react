@@ -6,16 +6,16 @@ const initialState = {
 };
 
 export default function productsReducer(state = initialState, { type, payload }) {
-	console.log("productsReducer", payload);
+	console.log('productsReducer', payload);
 
 	switch (type) {
-		case "FETCH_PRODUCTS_START":
+		case 'FETCH_PRODUCTS_START':
 			return {
 				...state,
 				fetching : true,
 			};
 
-		case "RECIEVED_PRODUCTS":
+		case 'RECIEVED_PRODUCTS':
 			return {
 				...state,
 				fetching : false,
@@ -23,7 +23,7 @@ export default function productsReducer(state = initialState, { type, payload })
 				list     : payload,
 			};
 
-		case "FETCH_PRODUCTS_ERROR":
+		case 'FETCH_PRODUCTS_ERROR':
 			return {
 				...state,
 				fetching : false,
@@ -31,25 +31,30 @@ export default function productsReducer(state = initialState, { type, payload })
 				error    : payload,
 			};
 
-		case "ADDTOBASKET_PRODUCTS":
+		case 'ADDTOBASKET_PRODUCTS':
 			return {
 				...state,
-				productsInBasket : [ ...state.productsInBasket, payload ],
+				productsInBasket : [
+					...state.productsInBasket,
+					payload,
+				],
 			};
 
-		case "INTHEBASKET_PRODUCTS":
-			state.productsInBasket.map((product) => {
+		case 'INTHEBASKET_PRODUCTS':
+			state.productsInBasket.map(product => {
 				if (product.id === payload.id) {
 					product.piece += payload.piece;
 				}
 			});
 			return {
 				...state,
-				productsInBasket : [ ...state.productsInBasket ],
+				productsInBasket : [
+					...state.productsInBasket,
+				],
 			};
 
-		case "DELETE_FROMBASKET_PRODUCTS":
-			state.productsInBasket.map((product) => {
+		case 'DELETE_FROMBASKET_PRODUCTS':
+			state.productsInBasket.map(product => {
 				if (product.id === payload) {
 					let index = state.productsInBasket.indexOf(product);
 					state.productsInBasket.splice(index, 1);
@@ -57,7 +62,9 @@ export default function productsReducer(state = initialState, { type, payload })
 			});
 			return {
 				...state,
-				productsInBasket : [ ...state.productsInBasket ],
+				productsInBasket : [
+					...state.productsInBasket,
+				],
 			};
 
 		default:

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./assets/css/main.scss";
-// import "./App.scss";
+import "./assets/img/favicon.ico";
+import "./assets/scss/main.scss";
 import Async from "react-code-splitting";
 import { connect } from "react-redux";
+
 import { updateUser } from "./actions/userActions";
 import Logo from "./components/leftPanel/logo";
 import { addAnimate } from "./components/HOC/animate";
@@ -65,22 +66,22 @@ class App extends Component {
     return (
       <Router>
         <div className="row align-items-stretch">
-          <div className="col-2 leftPanel">
+          <div className="col-xl-2 col-lg-2 col-1 leftPanel">
             <Logo />
             <hr />
             <NavMenu {...this.props} />
-            <h2 className="text-center">{this.props.user}</h2>
+            <h2 className="text-center d-none d-sm-none">{this.props.user}</h2>
             <button
               className={`btn ${
                 fetching ? "btn-success " : "btn-danger "
-              } btn-block`}
+              } btn-block d-none d-sm-none`}
               type="button"
               onClick={this._updateUser}
             >
               {fetching ? "Loading..." : "Warning"}
             </button>
           </div>
-          <div className="col-10 rightPanel">
+          <div className="col-xl-10 col-lg-10 col-11 rightPanel">
             <Header {...this.props} />
 
             <div className="listContainer">

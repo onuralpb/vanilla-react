@@ -1,32 +1,28 @@
-import React, { Component } from "react";
-import Loader from "react-loaders";
-import { connect } from "react-redux";
-import { Button, InputGroup, FormControl } from "react-bootstrap";
-import { getUsersList, addUser, updateUser, deleteUser, searchUser } from "../../actions/usersActions";
+import React, { Component } from 'react';
+import Loader from 'react-loaders';
+import { connect } from 'react-redux';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
+import { getUsersList, addUser, updateUser, deleteUser, searchUser } from '../../actions/usersActions';
 export class users extends Component {
 	componentDidMount() {
 		this.props._getUsersList();
 	}
 
 	render() {
-		console.log("users", this);
+		console.log('users', this);
 		const { users } = this.props;
 		return (
 			<div>
 				<h1>Users</h1>
 				{users.error && `(Veri alınamadı)`}
-				<InputGroup className='mb-3'>
-					<FormControl
-						placeholder='Recipient&#39;s username'
-						aria-label='Recipient&#39;s username'
-						aria-describedby='basic-addon2'
-					/>
+				<InputGroup className="mb-3">
+					<FormControl placeholder="Kullanıcı adını gir" aria-label="Kullanıcı adını gir" />
 					<InputGroup.Append>
-						<Button variant='danger'>dssfd</Button>
+						<Button variant="danger">Ara</Button>
 					</InputGroup.Append>
 				</InputGroup>
-				<div className='panel'>
-					<table className='table table-hover'>
+				<div className="panel">
+					<table className="table table-hover">
 						<thead>
 							<tr>
 								<th>id</th>
@@ -40,14 +36,14 @@ export class users extends Component {
 						<tbody>
 							{users.fetching ? (
 								<tr>
-									<td colSpan='6'>
-										<div className='loadingPanel'>
-											<Loader type='ball-beat' />
+									<td colSpan="6">
+										<div className="loadingPanel">
+											<Loader type="ball-beat" />
 										</div>
 									</td>
 								</tr>
 							) : (
-								users.list.map((user) => (
+								users.list.map(user => (
 									<tr key={user.id}>
 										<td>{user.id}</td>
 										<td>

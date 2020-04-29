@@ -15,7 +15,7 @@ export function getProductList () {
     });
     setTimeout (() => {
       axios
-        .get ('http://localhost:4000/products')
+        .get ('http://localhost:5555/products')
         .then (response => response.data)
         .then (products =>
           dispatch ({

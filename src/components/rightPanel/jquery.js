@@ -15,7 +15,7 @@ import "jquery-countdown";
 export default class jquery extends Component {
 	componentDidMount() {
 		setTimeout(() => {
-			fetch("http://localhost:4000/albums?userId=1").then((data) => data.json());
+			fetch("http://localhost:5555/albums?userId=1").then((data) => data.json());
 		}, 500);
 		this.$el_selec2 = $(this.el_selec2);
 		this.$el_date = $(this.el_date);

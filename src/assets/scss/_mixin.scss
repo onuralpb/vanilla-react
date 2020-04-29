@@ -1,0 +1,81 @@
+//Media Query List
+
+@mixin mq($breakpoint) {
+	$mq-xxs: "(max-width: 575px)";
+	$mq-xs: "(min-width: 576px) and (max-width: 767px)";
+	$mq-xs-min: "(min-width: 576px)";
+	$mq-xs-max: "(max-width: 767px)";
+	$mq-sm: "(min-width: 768px) and (max-width: 991px)";
+	$mq-sm-min: "(min-width: 768px)";
+	$mq-sm-max: "(max-width: 991px)";
+	$mq-md: "(min-width: 992px) and (max-width: 1199px)";
+	$mq-md-min: "(min-width: 992px)";
+	$mq-md-max: "(max-width: 1199px)";
+	$mq-lg: "(min-width: 1200px)";
+	$mq-lg-1280: "(min-width: 1200px) and (max-width: 1365px)";
+	$mq-lg-1366: "(min-width: 1366px) and (max-width: 1439px)";
+	$mq-lg-1440: "(min-width: 1440px) and (max-width: 1599px)";
+	$mq-lg-1600: "(min-width: 1600px)";
+
+	@if $breakpoint==xxs {
+		@media #{$mq-xxs} {
+			@content;
+		}
+	} @else if $breakpoint==xs {
+		@media #{$mq-xs} {
+			@content;
+		}
+	} @else if $breakpoint==xs-min {
+		@media #{$mq-xs-min} {
+			@content;
+		}
+	} @else if $breakpoint==xs-max {
+		@media #{$mq-xs-max} {
+			@content;
+		}
+	} @else if $breakpoint==sm {
+		@media #{$mq-sm} {
+			@content;
+		}
+	} @else if $breakpoint==sm-min {
+		@media #{$mq-sm-min} {
+			@content;
+		}
+	} @else if $breakpoint==sm-max {
+		@media #{$mq-sm-max} {
+			@content;
+		}
+	} @else if $breakpoint==md {
+		@media #{$mq-md} {
+			@content;
+		}
+	} @else if $breakpoint==md-min {
+		@media #{$mq-md-min} {
+			@content;
+		}
+	} @else if $breakpoint==md-max {
+		@media #{$mq-md-max} {
+			@content;
+		}
+	} @else if $breakpoint==lg {
+		@media #{$mq-lg} {
+			@content;
+		}
+	} @else if $breakpoint==lg-1280 {
+		@media #{$mq-lg-1280} {
+			@content;
+		}
+	} @else if $breakpoint==lg-1366 {
+		@media #{$mq-lg-1366} {
+			@content;
+		}
+	} @else if $breakpoint==lg-1440 {
+		@media #{$mq-lg-1440} {
+			@content;
+		}
+	} @else if $breakpoint==lg-1600 {
+		@media #{$mq-lg-1600} {
+			@content;
+		}
+	}
+}
