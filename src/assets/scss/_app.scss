@@ -1,113 +1,113 @@
 .mainBorder {
   background: red;
 
-	.leftPanel {
-		background: #131c29;
-		min-height: 800px;
-		@include mq(xs-max) {
-			padding-right: 5px;
-			padding-left: 5px;
-		}
-		.logoContent {
-			position: relative;
-			margin: 15px 0;
-			a {
-				display: block;
-				img {
-					width: 40px;
-					@include mq(sm) {
-						width: 30px;
-					}
-					@include mq(xs-max) {
-						width: 30px;
-					}
-				}
-				span {
-					position: absolute;
-					left: 55px;
-					top: 6px;
-					font-size: 20px;
-					color: #e3ecf6;
-				}
-			}
-			@include mq(sm-max) {
-				text-align: center;
-			}
-		}
-		hr {
-			display: block;
-			width: 100%;
-			height: 1px;
-			background-color: #1e2633;
-			margin: 10px 0;
-		}
-		.leftMenuContent {
-			li {
-				a {
-					display: block;
-					font-weight: 400;
-					font-size: 14px;
-					padding: 10px 15px;
-					margin: 5px 0;
-					border-radius: 4px;
-					color: #a7aeb5;
-					&:hover {
-						color: #e3ecf6;
-						background: #1c2636;
-					}
-					&.activePage {
-						color: #e3ecf6;
-						background: #273954;
-						i {
-							color: #9d7be0;
-						}
-					}
+  .leftPanel {
+    background: #131c29;
+    min-height: 800px;
+    @include mq(xs-max) {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    .logoContent {
+      position: relative;
+      margin: 15px 0;
+      a {
+        display: block;
+        img {
+          width: 40px;
+          @include mq(sm) {
+            width: 30px;
+          }
+          @include mq(xs-max) {
+            width: 30px;
+          }
+        }
+        span {
+          position: absolute;
+          left: 55px;
+          top: 6px;
+          font-size: 20px;
+          color: #e3ecf6;
+        }
+      }
+      @include mq(sm-max) {
+        text-align: center;
+      }
+    }
+    hr {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #1e2633;
+      margin: 10px 0;
+    }
+    .leftMenuContent {
+      li {
+        a {
+          display: block;
+          font-weight: 400;
+          font-size: 14px;
+          padding: 10px 15px;
+          margin: 5px 0;
+          border-radius: 4px;
+          color: #a7aeb5;
+          &:hover {
+            color: #e3ecf6;
+            background: #1c2636;
+          }
+          &.activePage {
+            color: #e3ecf6;
+            background: #273954;
+            i {
+              color: #9d7be0;
+            }
+          }
 
-					i {
-						margin-right: 5px;
-					}
-					@include mq(sm-max) {
-						padding: 5px;
-						margin: 7px 0;
-						text-align: center;
-						i {
-							margin-right: 0;
-						}
-						span {
-							display: none;
-						}
-					}
-				}
-			}
-			&.menuForFetching {
-				a {
-					&.activePage {
-						background: #950dda;
-						i {
-							color: #61b10a;
-						}
-					}
-				}
-			}
-		}
-	}
-	.rightPanel {
-		background: #212d46;
-		padding: 0 30px 30px 30px;
-		@include mq(xs) {
-			padding: 0 10px 10px;
-		}
-		@include mq(xxs) {
-			padding: 0 5px 5px;
-		}
-		.listContainer {
-			.panel {
-				@include mq(xs-max) {
-					padding: 5px;
-				}
-			}
-		}
-	}
+          i {
+            margin-right: 5px;
+          }
+          @include mq(sm-max) {
+            padding: 5px;
+            margin: 7px 0;
+            text-align: center;
+            i {
+              margin-right: 0;
+            }
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+      &.menuForFetching {
+        a {
+          &.activePage {
+            background: #950dda;
+            i {
+              color: #61b10a;
+            }
+          }
+        }
+      }
+    }
+  }
+  .rightPanel {
+    background: #212d46;
+    padding: 0 30px 30px 30px;
+    @include mq(xs) {
+      padding: 0 10px 10px;
+    }
+    @include mq(xxs) {
+      padding: 0 5px 5px;
+    }
+    .listContainer {
+      .panel {
+        @include mq(xs-max) {
+          padding: 5px;
+        }
+      }
+    }
+  }
 }
 
 .loadingPanel {
@@ -247,7 +247,6 @@
   }
 }
 .productBasket {
-<<<<<<< HEAD:src/app.scss
   background: whitesmoke;
   padding: 10px 0;
   border-radius: 6px;
@@ -260,36 +259,14 @@
     right: 0;
     bottom: 0;
     border-radius: 5px 0 5px 0;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
   &:hover {
-    background: #fff0f0;
+    background: #fff2cc;
     .btn {
       opacity: 1;
     }
   }
-=======
-	background: whitesmoke;
-	padding: 10px 0;
-	border-radius: 6px;
-	margin-bottom: 5px;
-	position: relative;
-	transition: background .4s ease-in-out;
-	.btn {
-		opacity: 0;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		border-radius: 5px 0 5px 0;
-		transition: opacity .0.5s ease-in-out;
-	}
-	&:hover {
-		background: #fff2cc;
-		.btn {
-			opacity: 1;
-		}
-	}
->>>>>>> fc87f0ddfa0916006f6ee2834c089e857436c40f:src/assets/scss/_app.scss
 }
 .sumPriceContent {
   text-align: right;
